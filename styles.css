@@ -1,0 +1,963 @@
+/* ========================================
+   Minimalist Academic Portfolio
+   Inspired by timurhammond.com
+   ======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --text: #1a1a1a;
+    --text-light: #666;
+    --text-lighter: #999;
+    --bg: #ffffff;
+    --bg-alt: #fafafa;
+    --bg-subtle: #f5f5f5;
+    --border: #e0e0e0;
+    --border-light: #f0f0f0;
+    --link: #1a1a1a;
+    --link-hover: #333;
+    --accent: #2c5f5a;
+    --accent-light: rgba(44, 95, 90, 0.1);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    color: var(--text);
+    line-height: 1.7;
+    background: var(--bg);
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-image: 
+        radial-gradient(circle at 20% 50%, rgba(44, 95, 90, 0.02) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(44, 95, 90, 0.02) 0%, transparent 50%);
+    background-attachment: fixed;
+}
+
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* ========================================
+   Header Image
+   ======================================== */
+
+.site-header-image {
+    width: 100%;
+    height: 200px;
+    background: var(--bg-subtle);
+    overflow: hidden;
+    margin-top: 0;
+}
+
+.site-header-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ========================================
+   Navigation
+   ======================================== */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.98);
+    border-bottom: 1px solid var(--border);
+    z-index: 1000;
+    padding: 1.25rem 0;
+}
+
+.nav-container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+}
+
+.logo {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--text);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 1.75rem;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+}
+
+.nav-link {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 400;
+    transition: opacity 0.2s ease;
+}
+
+.nav-link:hover {
+    opacity: 0.7;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 22px;
+    height: 1px;
+    background: var(--text);
+}
+
+/* ========================================
+   Hero / Home Section
+   ======================================== */
+
+.hero {
+    padding: 4rem 2rem 3rem;
+    margin-top: 0;
+    position: relative;
+}
+
+.hero-content {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.hero-image-wrapper {
+    margin-bottom: 2.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-image-placeholder {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-light) 0%, rgba(44, 95, 90, 0.05) 100%);
+    border: 3px solid var(--border-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-image-placeholder::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+        radial-gradient(circle at 30% 30%, rgba(44, 95, 90, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 70% 70%, rgba(44, 95, 90, 0.08) 0%, transparent 50%);
+}
+
+.hero-image-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-title {
+    font-size: 2.5rem;
+    font-weight: 400;
+    line-height: 1.3;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+}
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-light);
+    font-weight: 400;
+    margin-bottom: 2rem;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+}
+
+/* ========================================
+   Buttons
+   ======================================== */
+
+.btn {
+    display: inline-block;
+    padding: 0.6rem 1.5rem;
+    font-size: 0.95rem;
+    font-weight: 400;
+    text-decoration: none;
+    color: var(--text);
+    border: 1px solid var(--text);
+    transition: all 0.2s ease;
+    background: transparent;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: var(--text);
+    color: var(--bg);
+    border-color: var(--text);
+}
+
+.btn-primary:hover {
+    background: var(--text-light);
+    border-color: var(--text-light);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--text);
+}
+
+.btn-secondary:hover {
+    background: var(--text);
+    color: var(--bg);
+}
+
+.btn-external::after {
+    content: ' ↗';
+    font-size: 0.9em;
+}
+
+/* ========================================
+   Sections
+   ======================================== */
+
+.section {
+    padding: 5rem 0;
+}
+
+.section-alt {
+    background: var(--bg-alt);
+    position: relative;
+}
+
+.section-alt::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+
+.section-header {
+    margin-bottom: 3rem;
+}
+
+.section-title {
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+}
+
+.section-subtitle {
+    font-size: 1rem;
+    color: var(--text-light);
+    font-weight: 400;
+    margin-top: 0.5rem;
+}
+
+.section-divider {
+    display: none;
+}
+
+/* ========================================
+   About Section
+   ======================================== */
+
+.about-content {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text);
+}
+
+.about-content p {
+    margin-bottom: 1.5rem;
+}
+
+.about-content a {
+    color: var(--link);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+    transition: opacity 0.2s ease;
+}
+
+.about-content a:hover {
+    opacity: 0.7;
+}
+
+/* ========================================
+   Education Section - Simple List
+   ======================================== */
+
+.education-timeline {
+    max-width: 100%;
+}
+
+.education-item {
+    margin-bottom: 2.5rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.education-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.education-item::before {
+    display: none;
+}
+
+.education-degree {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+.education-org {
+    font-size: 1rem;
+    color: var(--text-light);
+    margin-bottom: 0.25rem;
+}
+
+.education-meta {
+    font-size: 0.95rem;
+    color: var(--text-lighter);
+}
+
+/* ========================================
+   Writings Section
+   ======================================== */
+
+.writings-container {
+    max-width: 100%;
+}
+
+.writings-tabs {
+    display: flex;
+    gap: 0;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.tab-button {
+    padding: 0.8rem 1.5rem;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-bottom: -1px;
+    font-family: inherit;
+}
+
+.tab-button:hover {
+    color: var(--text);
+}
+
+.tab-button.active {
+    color: var(--text);
+    border-bottom-color: var(--text);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.writings-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.writing-item {
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.2s ease;
+    margin: 0 -1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.writing-item:hover {
+    background: var(--bg-subtle);
+}
+
+.writing-item:last-child {
+    border-bottom: none;
+}
+
+.writing-item h3 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 0.8rem;
+    line-height: 1.5;
+}
+
+.writing-meta {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    margin-bottom: 0.8rem;
+}
+
+.writing-description {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text);
+    margin-bottom: 1rem;
+}
+
+.writing-link {
+    display: inline-block;
+    color: var(--link);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+    font-size: 0.95rem;
+    transition: opacity 0.2s ease;
+}
+
+.writing-link:hover {
+    opacity: 0.7;
+}
+
+.writing-link::after {
+    content: '';
+}
+
+/* Google Scholar Integration */
+.scholar-intro {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: var(--bg-subtle);
+    border-radius: 4px;
+    margin-bottom: 2rem;
+}
+
+.scholar-intro-text {
+    font-size: 1.05rem;
+    color: var(--text);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.scholar-intro-text a {
+    color: var(--link);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+}
+
+.writings-divider {
+    text-align: center;
+    margin: 3rem 0;
+    position: relative;
+}
+
+.writings-divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--border);
+}
+
+.writings-divider span {
+    position: relative;
+    background: var(--bg);
+    padding: 0 1.5rem;
+    color: var(--text-lighter);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.writings-intro {
+    text-align: left;
+    padding: 0;
+    background: transparent;
+    margin-bottom: 3rem;
+}
+
+.writings-intro p {
+    font-size: 1.05rem;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+}
+
+.writings-intro a {
+    color: var(--link);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+}
+
+/* ========================================
+   Teaching Experience
+   ======================================== */
+
+.experience-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.experience-card {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    padding: 2rem 0;
+    transition: background 0.2s ease;
+    margin: 0 -1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.experience-card:last-child {
+    border-bottom: none;
+}
+
+.experience-card:hover {
+    background: var(--bg-subtle);
+}
+
+.experience-term {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--text-lighter);
+    text-transform: none;
+    letter-spacing: 0;
+    margin-bottom: 0.5rem;
+}
+
+.experience-course {
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+.experience-instructor {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+
+.experience-duties {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* ========================================
+   Awards Section
+   ======================================== */
+
+.awards-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.award-card {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    padding: 2rem 0;
+    transition: background 0.2s ease;
+    margin: 0 -1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.award-card:last-child {
+    border-bottom: none;
+}
+
+.award-card::before {
+    display: none;
+}
+
+.award-card:hover {
+    background: var(--bg-subtle);
+}
+
+.award-name {
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+.award-period {
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: var(--text-light);
+    margin-bottom: 0.25rem;
+}
+
+.award-org {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* ========================================
+   Presentations
+   ======================================== */
+
+.presentations-list {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.presentation-item {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    padding: 2.5rem 0;
+    transition: background 0.2s ease;
+    margin: 0 -1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.presentation-item:last-child {
+    border-bottom: none;
+}
+
+.presentation-item:hover {
+    background: var(--bg-subtle);
+}
+
+.presentation-event {
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.presentation-type {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--text-lighter);
+    text-transform: none;
+    letter-spacing: 0;
+    padding: 0;
+    background: transparent;
+    margin-bottom: 0.5rem;
+    margin-right: 1rem;
+}
+
+.presentation-title {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text);
+    margin-bottom: 1rem;
+}
+
+.presentation-session {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    font-style: normal;
+    margin-bottom: 0.8rem;
+}
+
+/* ========================================
+   Podcasts Section
+   ======================================== */
+
+.podcasts-container {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.podcast-videos-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.podcast-video-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.podcast-video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    background: var(--bg-subtle);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+}
+
+.podcast-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.podcast-channel-link-wrapper {
+    text-align: center;
+    padding-top: 1rem;
+}
+
+.podcast-channel-link {
+    display: inline-block;
+    color: var(--link);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+    font-size: 0.95rem;
+    transition: opacity 0.2s ease;
+}
+
+.podcast-channel-link:hover {
+    opacity: 0.7;
+}
+
+/* ========================================
+   Contact Section
+   ======================================== */
+
+.contact-content {
+    max-width: 100%;
+    text-align: left;
+}
+
+.contact-intro {
+    font-size: 1.05rem;
+    color: var(--text);
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
+}
+
+.contact-email {
+    display: inline-block;
+    padding: 0;
+    background: transparent;
+    border: none;
+    text-decoration: none;
+    color: var(--link);
+    font-size: 1.05rem;
+    font-weight: 400;
+    margin-bottom: 2.5rem;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+    transition: opacity 0.2s ease;
+}
+
+.contact-email:hover {
+    border-color: transparent;
+    color: var(--link);
+    box-shadow: none;
+    transform: none;
+    opacity: 0.7;
+}
+
+.contact-links {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.contact-link {
+    display: inline-block;
+    padding: 0;
+    background: transparent;
+    border: none;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+    color: var(--link);
+    font-weight: 400;
+    font-size: 1.05rem;
+    transition: opacity 0.2s ease;
+}
+
+.contact-link:hover {
+    border-color: transparent;
+    color: var(--link);
+    box-shadow: none;
+    transform: none;
+    opacity: 0.7;
+}
+
+/* ========================================
+   Footer
+   ======================================== */
+
+.footer {
+    background: var(--bg);
+    color: var(--text-lighter);
+    padding: 3rem 0;
+    text-align: center;
+    font-size: 0.9rem;
+    border-top: 1px solid var(--border);
+}
+
+/* ========================================
+   Responsive Design
+   ======================================== */
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1.5rem;
+    }
+    
+    .nav-container {
+        padding: 0 1.5rem;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background: white;
+        width: 100%;
+        padding: 2rem;
+        border-bottom: 1px solid var(--border);
+        transition: left 0.3s ease;
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .hamburger {
+        display: flex;
+    }
+    
+    .site-header-image {
+        height: 150px;
+    }
+
+    .hero {
+        padding: 3rem 1.5rem 2rem;
+    }
+    
+    .podcast-videos-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .nav-menu {
+        gap: 1.5rem;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .section {
+        padding: 4rem 0;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+    
+    .hero-actions {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .writings-tabs {
+        flex-wrap: wrap;
+    }
+    
+    .contact-links {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1.75rem;
+    }
+    
+    .section-title {
+        font-size: 1.35rem;
+    }
+}
