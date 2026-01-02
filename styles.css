@@ -517,6 +517,30 @@ body {
     border-bottom: none;
 }
 
+.writing-link-full {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.2s ease;
+}
+
+.writing-link-full:hover {
+    opacity: 0.8;
+}
+
+.writing-link-full h3 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 0.8rem;
+    line-height: 1.5;
+    transition: color 0.2s ease;
+}
+
+.writing-link-full:hover h3 {
+    color: var(--link);
+}
+
 .writing-item h3 {
     font-size: 1.2rem;
     font-weight: 400;

@@ -62,3 +62,4 @@ Once pushed to GitHub, you can deploy to:
 - **Vercel**: Import GitHub repo → Auto-deploy
 - **GitHub Pages**: Settings → Pages → Select branch
 
+
