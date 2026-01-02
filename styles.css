@@ -522,10 +522,26 @@ body {
     text-decoration: none;
     color: inherit;
     transition: opacity 0.2s ease;
+    outline: none !important;
+    border-radius: 2px;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .writing-link-full:hover {
     opacity: 0.8;
+}
+
+.writing-link-full:focus,
+.writing-link-full:focus-visible,
+.writing-link-full:active,
+.writing-link-full:focus:active {
+    outline: none !important;
+    box-shadow: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.writing-link-full:active {
+    opacity: 0.7;
 }
 
 .writing-link-full h3 {
