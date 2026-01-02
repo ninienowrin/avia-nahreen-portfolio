@@ -15,6 +15,22 @@ document.querySelectorAll('.nav-link').forEach(link => {
     });
 });
 
+// Gallery Lightbox (Simple Implementation)
+document.addEventListener('DOMContentLoaded', function() {
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    
+    galleryItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const img = this.querySelector('.gallery-image');
+            if (img) {
+                // Simple lightbox - opens image in new tab for now
+                // Can be enhanced with a modal later
+                window.open(img.src, '_blank');
+            }
+        });
+    });
+});
+
 // Smooth Scrolling
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
