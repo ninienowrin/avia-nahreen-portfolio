@@ -15,6 +15,16 @@ Thumbs.db
 *.log
 npm-debug.log*
 
+# Video files (too large for git)
+*.mp4
+*.mov
+*.avi
+*.webm
+*.mkv
+
+# Exception: Allow the header background video (7MB - reasonable size)
+!images/buriganga-s.mp4
+
 # Optional: If you add build tools later
 node_modules/
 dist/

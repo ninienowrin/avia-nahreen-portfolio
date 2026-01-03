@@ -74,6 +74,54 @@ window.addEventListener('scroll', () => {
     }
 });
 
+// Header video handling (local video file)
+document.addEventListener('DOMContentLoaded', function() {
+    const headerVideo = document.querySelector('.header-video');
+    const headerFallback = document.querySelector('.header-fallback');
+    
+    if (headerVideo) {
+        // Start with video hidden, show when ready
+        headerVideo.classList.add('loading');
+        
+        // When video can play, show it and hide fallback
+        const showVideo = function() {
+            headerVideo.classList.remove('loading');
+            if (headerFallback) {
+                headerFallback.style.display = 'none';
+            }
+        };
+        
+        // Check if video is already loaded
+        if (headerVideo.readyState >= 2) {
+            showVideo();
+        } else {
+            headerVideo.addEventListener('loadeddata', showVideo);
+            headerVideo.addEventListener('canplay', showVideo);
+        }
+        
+        // Handle video errors
+        headerVideo.addEventListener('error', function() {
+            console.log('Video failed to load, showing fallback image');
+            if (headerFallback) {
+                headerFallback.style.display = 'block';
+            }
+            headerVideo.style.display = 'none';
+        });
+        
+        // Try to play video
+        const playPromise = headerVideo.play();
+        if (playPromise !== undefined) {
+            playPromise.catch(function(error) {
+                console.log('Video autoplay prevented:', error);
+                // Still try to show video if it loaded
+                if (headerVideo.readyState >= 2) {
+                    showVideo();
+                }
+            });
+        }
+    }
+});
+
 // Example function to add writings (can be expanded to fetch from APIs)
 function addWritingItem(containerId, title, authors, journal, year, description, link) {
     const container = document.getElementById(containerId);

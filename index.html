@@ -19,12 +19,22 @@
     <meta name="twitter:title" content="Avia Nahreen - Researcher | Ph.D. Candidate in Geography">
     <meta name="twitter:description" content="Ph.D. Candidate in Geography at Syracuse University. Researcher exploring urban justice, water security, and climate change.">
     
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Header Image -->
+    <!-- Header Image with Water Theme -->
     <div class="site-header-image">
-        <img src="images/boat.jpeg" alt="Header">
+        <video class="header-video" autoplay muted loop playsinline>
+            <source src="images/buriganga-s.mp4" type="video/mp4">
+        </video>
+        <!-- Fallback image if video not supported -->
+        <img class="header-fallback" src="images/boat.jpeg" alt="Header">
+        <div class="header-overlay">
+            <div class="water-texture"></div>
+        </div>
     </div>
 
     <!-- Navigation -->
@@ -37,10 +47,8 @@
                 <li><a href="#research" class="nav-link">Research</a></li>
                 <li><a href="#education" class="nav-link">Education</a></li>
                 <li><a href="#writings" class="nav-link">Writings</a></li>
-                <li><a href="#gallery" class="nav-link">Images</a></li>
                 <li><a href="#teaching" class="nav-link">Teaching</a></li>
                 <li><a href="#awards" class="nav-link">Awards</a></li>
-                <li><a href="#presentations" class="nav-link">Presentations</a></li>
                 <li><a href="#podcasts" class="nav-link">Podcasts</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
@@ -63,8 +71,8 @@
                 </div>
                 <h1 class="hero-title">Avia Nahreen</h1>
                 <p class="hero-subtitle">
-                    Ph.D. Candidate in Geography at Syracuse University. Researcher exploring urban justice, 
-                    water security, and climate change through intersectional, feminist political ecology frameworks.
+                    Ph.D. Candidate in Geography at Syracuse University.<br>
+                    Researcher exploring urban justice, water security, and climate change through intersectional, feminist political ecology frameworks.
                 </p>
                 <div class="hero-actions">
                     <a href="#writings" class="btn btn-primary">Publications</a>
