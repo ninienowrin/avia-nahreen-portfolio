@@ -22,8 +22,8 @@ npm-debug.log*
 *.webm
 *.mkv
 
-# Exception: Allow the header background video (7MB - reasonable size)
-!images/buriganga-s.mp4
+# Exception: Allow the header background video (19MB - reasonable size)
+!images/buriganga-sd.mp4
 
 # Optional: If you add build tools later
 node_modules/
