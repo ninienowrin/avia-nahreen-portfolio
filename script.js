@@ -86,22 +86,46 @@ document.addEventListener('DOMContentLoaded', function() {
         // When video can play, show it and hide fallback
         const showVideo = function() {
             headerVideo.classList.remove('loading');
+            headerVideo.style.display = 'block';
             if (headerFallback) {
                 headerFallback.style.display = 'none';
             }
         };
         
+        // Debug: Log video source
+        const videoSource = headerVideo.querySelector('source');
+        if (videoSource) {
+            console.log('Video source:', videoSource.src);
+        }
+        
         // Check if video is already loaded
         if (headerVideo.readyState >= 2) {
             showVideo();
         } else {
-            headerVideo.addEventListener('loadeddata', showVideo);
-            headerVideo.addEventListener('canplay', showVideo);
+            headerVideo.addEventListener('loadeddata', function() {
+                console.log('Video loaded successfully');
+                showVideo();
+            });
+            headerVideo.addEventListener('canplay', function() {
+                console.log('Video can play');
+                showVideo();
+            });
+            headerVideo.addEventListener('loadedmetadata', function() {
+                console.log('Video metadata loaded');
+            });
         }
         
-        // Handle video errors
-        headerVideo.addEventListener('error', function() {
-            console.log('Video failed to load, showing fallback image');
+        // Handle video errors with detailed logging
+        headerVideo.addEventListener('error', function(e) {
+            const error = headerVideo.error;
+            console.error('Video failed to load:', error);
+            if (error) {
+                console.error('Error code:', error.code);
+                console.error('Error message:', error.message);
+                if (error.code === 4) {
+                    console.error('Source not supported or not found');
+                }
+            }
             if (headerFallback) {
                 headerFallback.style.display = 'block';
             }
@@ -109,6 +133,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         // Try to play video
+        headerVideo.load(); // Force reload
         const playPromise = headerVideo.play();
         if (playPromise !== undefined) {
             playPromise.catch(function(error) {
