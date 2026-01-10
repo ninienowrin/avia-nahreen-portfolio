@@ -37,11 +37,24 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            const offsetTop = target.offsetTop - 80;
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
-            });
+            // Show teaching section if it's hidden and being accessed
+            if (target.id === 'teaching' && target.classList.contains('teaching-hidden')) {
+                target.classList.remove('teaching-hidden');
+                // Wait a bit for the layout to update before scrolling
+                setTimeout(() => {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }, 10);
+            } else {
+                const offsetTop = target.offsetTop - 80;
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+            }
         }
     });
 });

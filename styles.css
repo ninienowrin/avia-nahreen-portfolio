@@ -1033,6 +1033,10 @@ body {
    Teaching Experience
    ======================================== */
 
+.teaching-hidden {
+    display: none;
+}
+
 .experience-grid {
     display: flex;
     flex-direction: column;
