@@ -15,10 +15,12 @@ document.querySelectorAll('.nav-link').forEach(link => {
     });
 });
 
-// Gallery Lightbox (Simple Implementation)
+// Gallery Lightbox and Load More (Simple Implementation)
 document.addEventListener('DOMContentLoaded', function() {
     const galleryItems = document.querySelectorAll('.gallery-item');
+    const loadMoreBtn = document.getElementById('galleryLoadMore');
     
+    // Lightbox functionality
     galleryItems.forEach(item => {
         item.addEventListener('click', function() {
             const img = this.querySelector('.gallery-image');
@@ -29,6 +31,26 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+    
+    // Load More functionality
+    if (loadMoreBtn) {
+        loadMoreBtn.addEventListener('click', function() {
+            const hiddenItems = document.querySelectorAll('.gallery-item-hidden');
+            
+            // Show next 6 items (or all remaining if less than 6)
+            const itemsToShow = Math.min(6, hiddenItems.length);
+            
+            for (let i = 0; i < itemsToShow; i++) {
+                hiddenItems[i].classList.remove('gallery-item-hidden');
+            }
+            
+            // Hide button if all items are shown
+            const remainingHidden = document.querySelectorAll('.gallery-item-hidden');
+            if (remainingHidden.length === 0) {
+                loadMoreBtn.classList.add('hidden');
+            }
+        });
+    }
 });
 
 // Smooth Scrolling
