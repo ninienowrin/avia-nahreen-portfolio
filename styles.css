@@ -1466,6 +1466,7 @@ body {
     position: relative;
     overflow: hidden;
     font-family: inherit;
+    z-index: 1;
 }
 
 .gallery-load-more-btn::before {
@@ -1485,7 +1486,7 @@ body {
 }
 
 .gallery-load-more-btn:hover {
-    color: var(--bg);
+    color: #ffffff !important;
     border-color: var(--accent);
 }
 
